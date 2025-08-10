@@ -9,13 +9,13 @@ public static class ConfigOptionKind
     /// </summary>
     public enum ConfigEnum
     {
-        PlaySoundsWhileWindowIsNotActive = 70,
+        PlaySoundsWhileWindowIsNotActive = 80,
         PlayMusicWhenMounted,
         EnableNormalBattleMusic,
         EnableCityStateBGM,
         PlaySystemSounds,
 
-        Master = 76,
+        Master = 86,
         Bgm,
         SoundEffects,
         Voice,
@@ -35,14 +35,14 @@ public static class ConfigOptionKind
         AmbientSoundsMuted,
         PerformanceMuted,
 
-        PlaySoundsWhileWindowIsNotActiveBGM = 96,
+        PlaySoundsWhileWindowIsNotActiveBGM = 106,
         PlaySoundsWhileWindowIsNotActiveSoundEffects,
         PlaySoundsWhileWindowIsNotActiveVoice,
         PlaySoundsWhileWindowIsNotActiveSystemSounds,
         PlaySoundsWhileWindowIsNotActiveAmbientSounds,
         PlaySoundsWhileWindowIsNotActivePerformance,
 
-        EqualizerMode = 102,
+        EqualizerMode = 112,
     }
 
     public static ConfigEnum GetConfigEnum(OptionKind kind)
