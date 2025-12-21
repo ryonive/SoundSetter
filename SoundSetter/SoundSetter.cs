@@ -31,6 +31,7 @@ namespace SoundSetter
 
         public static string Name => "SoundSetter";
 
+        [Obsolete("Obsolete")]
         public SoundSetter(
             IDalamudPluginInterface pluginInterface,
             IChatGui chatGui,
@@ -61,6 +62,7 @@ namespace SoundSetter
             this.pluginInterface.UiBuilder.Draw += OnTick;
 
             this.pluginInterface.UiBuilder.OpenConfigUi += OpenConfig;
+            this.pluginInterface.UiBuilder.OpenMainUi += OpenConfig;
 
             this.commandManager = new PluginCommandManager<SoundSetter>(this, commands);
         }
@@ -319,6 +321,7 @@ namespace SoundSetter
             this.commandManager.Dispose();
 
             this.pluginInterface.UiBuilder.OpenConfigUi -= OpenConfig;
+            this.pluginInterface.UiBuilder.OpenMainUi -= OpenConfig;
 
             this.pluginInterface.UiBuilder.Draw -= OnTick;
             this.pluginInterface.UiBuilder.Draw -= this.ui.Draw;

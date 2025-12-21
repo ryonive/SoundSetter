@@ -21,11 +21,11 @@ namespace SoundSetter
             this.commands = commands;
             this.host = host;
 
-            this.pluginCommands = host.GetType().GetMethods(BindingFlags.NonPublic | BindingFlags.Public |
-                                                            BindingFlags.Static | BindingFlags.Instance)
+            this.pluginCommands = host?.GetType().GetMethods(BindingFlags.NonPublic | BindingFlags.Public |
+                                                             BindingFlags.Static | BindingFlags.Instance)
                 .Where(method => method.GetCustomAttribute<CommandAttribute>() != null)
                 .SelectMany(GetCommandInfoTuple)
-                .ToArray();
+                .ToArray() ?? Array.Empty<(string, CommandInfo)>();
 
             AddCommandHandlers();
         }

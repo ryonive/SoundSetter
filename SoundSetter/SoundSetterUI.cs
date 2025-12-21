@@ -100,65 +100,72 @@ namespace SoundSetter
             ImGui.Spacing();
             ImGui.Text("Sound Settings");
 
-            var playSoundsWhileWindowIsNotActive = this.vc.PlaySoundsWhileWindowIsNotActive.GetValue();
+            var vcPlaySoundsWhileWindowIsNotActive = this.vc.PlaySoundsWhileWindowIsNotActive;
+            var playSoundsWhileWindowIsNotActive = vcPlaySoundsWhileWindowIsNotActive != null && vcPlaySoundsWhileWindowIsNotActive.GetValue();
             if (ImGui.Checkbox("Play sounds while window is not active.", ref playSoundsWhileWindowIsNotActive))
             {
-                this.vc.PlaySoundsWhileWindowIsNotActive.SetValue(playSoundsWhileWindowIsNotActive);
+                this.vc.PlaySoundsWhileWindowIsNotActive?.SetValue(playSoundsWhileWindowIsNotActive);
             }
 
             ImGui.Indent();
             ImGui.BeginDisabled(!playSoundsWhileWindowIsNotActive);
             {
-                if (ImGui.BeginTable("SoundSetterWhileInactiveOptions", 2, ImGuiTableFlags.None))
+                if (ImGui.BeginTable("SoundSetterWhileInactiveOptions", 2))
                 {
                     ImGui.TableNextColumn();
-                    var playSoundsWhileWindowIsNotActiveBgm = this.vc.PlaySoundsWhileWindowIsNotActiveBGM.GetValue();
+                    var vcPlaySoundsWhileWindowIsNotActiveBgm = this.vc.PlaySoundsWhileWindowIsNotActiveBGM;
+                    var playSoundsWhileWindowIsNotActiveBgm = vcPlaySoundsWhileWindowIsNotActiveBgm != null && vcPlaySoundsWhileWindowIsNotActiveBgm.GetValue();
                     if (ImGui.Checkbox("BGM", ref playSoundsWhileWindowIsNotActiveBgm))
                     {
-                        this.vc.PlaySoundsWhileWindowIsNotActiveBGM.SetValue(playSoundsWhileWindowIsNotActiveBgm);
+                        this.vc.PlaySoundsWhileWindowIsNotActiveBGM?.SetValue(playSoundsWhileWindowIsNotActiveBgm);
                     }
 
                     ImGui.TableNextColumn();
+                    var vcPlaySoundsWhileWindowIsNotActiveSoundEffects = this.vc.PlaySoundsWhileWindowIsNotActiveSoundEffects;
                     var playSoundsWhileWindowIsNotActiveSoundEffects =
-                        this.vc.PlaySoundsWhileWindowIsNotActiveSoundEffects.GetValue();
+                        vcPlaySoundsWhileWindowIsNotActiveSoundEffects != null && vcPlaySoundsWhileWindowIsNotActiveSoundEffects.GetValue();
                     if (ImGui.Checkbox("Sound Effects", ref playSoundsWhileWindowIsNotActiveSoundEffects))
                     {
-                        this.vc.PlaySoundsWhileWindowIsNotActiveSoundEffects.SetValue(
+                        this.vc.PlaySoundsWhileWindowIsNotActiveSoundEffects?.SetValue(
                             playSoundsWhileWindowIsNotActiveSoundEffects);
                     }
 
                     ImGui.TableNextColumn();
+                    var vcPlaySoundsWhileWindowIsNotActiveVoice = this.vc.PlaySoundsWhileWindowIsNotActiveVoice;
                     var playSoundsWhileWindowIsNotActiveVoice =
-                        this.vc.PlaySoundsWhileWindowIsNotActiveVoice.GetValue();
+                        vcPlaySoundsWhileWindowIsNotActiveVoice != null && vcPlaySoundsWhileWindowIsNotActiveVoice.GetValue();
                     if (ImGui.Checkbox("Voice", ref playSoundsWhileWindowIsNotActiveVoice))
                     {
-                        this.vc.PlaySoundsWhileWindowIsNotActiveVoice.SetValue(playSoundsWhileWindowIsNotActiveVoice);
+                        this.vc.PlaySoundsWhileWindowIsNotActiveVoice?.SetValue(playSoundsWhileWindowIsNotActiveVoice);
                     }
 
                     ImGui.TableNextColumn();
+                    var vcPlaySoundsWhileWindowIsNotActiveSystemSounds = this.vc.PlaySoundsWhileWindowIsNotActiveSystemSounds;
                     var playSoundsWhileWindowIsNotActiveSystemSounds =
-                        this.vc.PlaySoundsWhileWindowIsNotActiveSystemSounds.GetValue();
+                        vcPlaySoundsWhileWindowIsNotActiveSystemSounds != null && vcPlaySoundsWhileWindowIsNotActiveSystemSounds.GetValue();
                     if (ImGui.Checkbox("System Sounds", ref playSoundsWhileWindowIsNotActiveSystemSounds))
                     {
-                        this.vc.PlaySoundsWhileWindowIsNotActiveSystemSounds.SetValue(
+                        this.vc.PlaySoundsWhileWindowIsNotActiveSystemSounds?.SetValue(
                             playSoundsWhileWindowIsNotActiveSystemSounds);
                     }
 
                     ImGui.TableNextColumn();
+                    var vcPlaySoundsWhileWindowIsNotActiveAmbientSounds = this.vc.PlaySoundsWhileWindowIsNotActiveAmbientSounds;
                     var playSoundsWhileWindowIsNotActiveAmbientSounds =
-                        this.vc.PlaySoundsWhileWindowIsNotActiveAmbientSounds.GetValue();
+                        vcPlaySoundsWhileWindowIsNotActiveAmbientSounds != null && vcPlaySoundsWhileWindowIsNotActiveAmbientSounds.GetValue();
                     if (ImGui.Checkbox("Ambient Sounds", ref playSoundsWhileWindowIsNotActiveAmbientSounds))
                     {
-                        this.vc.PlaySoundsWhileWindowIsNotActiveAmbientSounds.SetValue(
+                        this.vc.PlaySoundsWhileWindowIsNotActiveAmbientSounds?.SetValue(
                             playSoundsWhileWindowIsNotActiveAmbientSounds);
                     }
 
                     ImGui.TableNextColumn();
+                    var vcPlaySoundsWhileWindowIsNotActivePerformance = this.vc.PlaySoundsWhileWindowIsNotActivePerformance;
                     var playSoundsWhileWindowIsNotActivePerformance =
-                        this.vc.PlaySoundsWhileWindowIsNotActivePerformance.GetValue();
+                        vcPlaySoundsWhileWindowIsNotActivePerformance != null && vcPlaySoundsWhileWindowIsNotActivePerformance.GetValue();
                     if (ImGui.Checkbox("Performance", ref playSoundsWhileWindowIsNotActivePerformance))
                     {
-                        this.vc.PlaySoundsWhileWindowIsNotActivePerformance.SetValue(
+                        this.vc.PlaySoundsWhileWindowIsNotActivePerformance?.SetValue(
                             playSoundsWhileWindowIsNotActivePerformance);
                     }
 
@@ -168,163 +175,218 @@ namespace SoundSetter
             ImGui.EndDisabled();
             ImGui.Unindent();
 
-            var playMusicWhenMounted = this.vc.PlayMusicWhenMounted.GetValue();
+            var vcPlayMusicWhenMounted = this.vc.PlayMusicWhenMounted;
+            var playMusicWhenMounted = vcPlayMusicWhenMounted != null && vcPlayMusicWhenMounted.GetValue();
             if (ImGui.Checkbox("Play music when mounted.", ref playMusicWhenMounted))
             {
-                this.vc.PlayMusicWhenMounted.SetValue(playMusicWhenMounted);
+                this.vc.PlayMusicWhenMounted?.SetValue(playMusicWhenMounted);
             }
 
-            var enableNormalBattleMusic = this.vc.EnableNormalBattleMusic.GetValue();
+            var vcEnableNormalBattleMusic = this.vc.EnableNormalBattleMusic;
+            var enableNormalBattleMusic = vcEnableNormalBattleMusic != null && vcEnableNormalBattleMusic.GetValue();
             if (ImGui.Checkbox("Enable normal battle music.", ref enableNormalBattleMusic))
             {
-                this.vc.EnableNormalBattleMusic.SetValue(enableNormalBattleMusic);
+                this.vc.EnableNormalBattleMusic?.SetValue(enableNormalBattleMusic);
             }
 
-            var enableCityStateBGM = this.vc.EnableCityStateBGM.GetValue();
+            var vcEnableCityStateBgm = this.vc.EnableCityStateBGM;
+            var enableCityStateBGM = vcEnableCityStateBgm != null && vcEnableCityStateBgm.GetValue();
             if (ImGui.Checkbox("Enable city-state BGM in residential areas.", ref enableCityStateBGM))
             {
-                this.vc.EnableCityStateBGM.SetValue(enableCityStateBGM);
+                this.vc.EnableCityStateBGM?.SetValue(enableCityStateBGM);
             }
 
-            var playSystemSounds = this.vc.PlaySystemSounds.GetValue();
+            var vcPlaySystemSounds = this.vc.PlaySystemSounds;
+            var playSystemSounds = vcPlaySystemSounds != null && vcPlaySystemSounds.GetValue();
             if (ImGui.Checkbox("Play system sounds while waiting for Duty Finder.", ref playSystemSounds))
             {
-                this.vc.PlaySystemSounds.SetValue(playSystemSounds);
+                this.vc.PlaySystemSounds?.SetValue(playSystemSounds);
             }
 
             ImGui.Text("Volume Settings");
 
             ImGui.PushFont(UiBuilder.IconFont);
-            var masterVolumeMuted = this.vc.MasterVolumeMuted.GetValue();
+            var vcMasterVolumeMuted = this.vc.MasterVolumeMuted;
+            var masterVolumeMuted = vcMasterVolumeMuted != null && vcMasterVolumeMuted.GetValue();
             if (ImGui.Button(VolumeButtonName(masterVolumeMuted, nameof(masterVolumeMuted)), buttonSize))
             {
-                this.vc.MasterVolumeMuted.SetValue(!masterVolumeMuted);
+                this.vc.MasterVolumeMuted?.SetValue(!masterVolumeMuted);
             }
 
             ImGui.PopFont();
             ImGui.SameLine();
-            var masterVolume = (int)this.vc.MasterVolume.GetValue();
-            if (ImGui.SliderInt("Master Volume", ref masterVolume, 0, 100))
+            var vcMasterVolume = this.vc.MasterVolume;
+            if (vcMasterVolume != null)
             {
-                this.vc.MasterVolume.SetValue((byte)masterVolume);
+                var masterVolume = (int)vcMasterVolume.GetValue();
+                if (ImGui.SliderInt("Master Volume", ref masterVolume, 0, 100))
+                {
+                    vcMasterVolume.SetValue((byte)masterVolume);
+                }
             }
 
             ImGui.PushFont(UiBuilder.IconFont);
-            var bgmMuted = this.vc.BgmMuted.GetValue();
+            var vcBgmMuted = this.vc.BgmMuted;
+            var bgmMuted = vcBgmMuted != null && vcBgmMuted.GetValue();
             if (ImGui.Button(VolumeButtonName(bgmMuted, nameof(bgmMuted)), buttonSize))
             {
-                this.vc.BgmMuted.SetValue(!bgmMuted);
+                this.vc.BgmMuted?.SetValue(!bgmMuted);
             }
 
             ImGui.PopFont();
             ImGui.SameLine();
-            var bgm = (int)this.vc.Bgm.GetValue();
-            if (ImGui.SliderInt("BGM", ref bgm, 0, 100))
+            var byteOption = this.vc.Bgm;
+            if (byteOption != null)
             {
-                this.vc.Bgm.SetValue((byte)bgm);
+                var bgm = (int)byteOption.GetValue();
+                if (ImGui.SliderInt("BGM", ref bgm, 0, 100))
+                {
+                    byteOption.SetValue((byte)bgm);
+                }
             }
 
             ImGui.PushFont(UiBuilder.IconFont);
-            var soundEffectsMuted = this.vc.SoundEffectsMuted.GetValue();
+            var vcSoundEffectsMuted = this.vc.SoundEffectsMuted;
+            var soundEffectsMuted = vcSoundEffectsMuted != null && vcSoundEffectsMuted.GetValue();
             if (ImGui.Button(VolumeButtonName(soundEffectsMuted, nameof(soundEffectsMuted)), buttonSize))
             {
-                this.vc.SoundEffectsMuted.SetValue(!soundEffectsMuted);
+                this.vc.SoundEffectsMuted?.SetValue(!soundEffectsMuted);
             }
 
             ImGui.PopFont();
             ImGui.SameLine();
-            var soundEffects = (int)this.vc.SoundEffects.GetValue();
-            if (ImGui.SliderInt("Sound Effects", ref soundEffects, 0, 100))
+            var vcSoundEffects = this.vc.SoundEffects;
+            if (vcSoundEffects != null)
             {
-                this.vc.SoundEffects.SetValue((byte)soundEffects);
+                var soundEffects = (int)vcSoundEffects.GetValue();
+                if (ImGui.SliderInt("Sound Effects", ref soundEffects, 0, 100))
+                {
+                    vcSoundEffects.SetValue((byte)soundEffects);
+                }
             }
 
             ImGui.PushFont(UiBuilder.IconFont);
-            var voiceMuted = this.vc.VoiceMuted.GetValue();
+            var vcVoiceMuted = this.vc.VoiceMuted;
+            var voiceMuted = vcVoiceMuted != null && vcVoiceMuted.GetValue();
             if (ImGui.Button(VolumeButtonName(voiceMuted, nameof(voiceMuted)), buttonSize))
             {
-                this.vc.VoiceMuted.SetValue(!voiceMuted);
+                this.vc.VoiceMuted?.SetValue(!voiceMuted);
             }
 
             ImGui.PopFont();
             ImGui.SameLine();
-            var voice = (int)this.vc.Voice.GetValue();
-            if (ImGui.SliderInt("Voice", ref voice, 0, 100))
+            var vcVoice = this.vc.Voice;
+            if (vcVoice != null)
             {
-                this.vc.Voice.SetValue((byte)voice);
+                var voice = (int)vcVoice.GetValue();
+                if (ImGui.SliderInt("Voice", ref voice, 0, 100))
+                {
+                    vcVoice.SetValue((byte)voice);
+                }
             }
 
             ImGui.PushFont(UiBuilder.IconFont);
-            var systemSoundsMuted = this.vc.SystemSoundsMuted.GetValue();
+            var vcSystemSoundsMuted = this.vc.SystemSoundsMuted;
+            var systemSoundsMuted = vcSystemSoundsMuted != null && vcSystemSoundsMuted.GetValue();
             if (ImGui.Button(VolumeButtonName(systemSoundsMuted, nameof(systemSoundsMuted)), buttonSize))
             {
-                this.vc.SystemSoundsMuted.SetValue(!systemSoundsMuted);
+                this.vc.SystemSoundsMuted?.SetValue(!systemSoundsMuted);
             }
 
             ImGui.PopFont();
             ImGui.SameLine();
-            var systemSounds = (int)this.vc.SystemSounds.GetValue();
-            if (ImGui.SliderInt("System Sounds", ref systemSounds, 0, 100))
+            var vcSystemSounds = this.vc.SystemSounds;
+            if (vcSystemSounds != null)
             {
-                this.vc.SystemSounds.SetValue((byte)systemSounds);
+                var systemSounds = (int)vcSystemSounds.GetValue();
+                if (ImGui.SliderInt("System Sounds", ref systemSounds, 0, 100))
+                {
+                    vcSystemSounds.SetValue((byte)systemSounds);
+                }
             }
 
             ImGui.PushFont(UiBuilder.IconFont);
-            var ambientSoundsMuted = this.vc.AmbientSoundsMuted.GetValue();
+            var vcAmbientSoundsMuted = this.vc.AmbientSoundsMuted;
+            var ambientSoundsMuted = vcAmbientSoundsMuted != null && vcAmbientSoundsMuted.GetValue();
             if (ImGui.Button(VolumeButtonName(ambientSoundsMuted, nameof(ambientSoundsMuted)), buttonSize))
             {
-                this.vc.AmbientSoundsMuted.SetValue(!ambientSoundsMuted);
+                this.vc.AmbientSoundsMuted?.SetValue(!ambientSoundsMuted);
             }
 
             ImGui.PopFont();
             ImGui.SameLine();
-            var ambientSounds = (int)this.vc.AmbientSounds.GetValue();
-            if (ImGui.SliderInt("Ambient Sounds", ref ambientSounds, 0, 100))
+            var vcAmbientSounds = this.vc.AmbientSounds;
+            if (vcAmbientSounds != null)
             {
-                this.vc.AmbientSounds.SetValue((byte)ambientSounds);
+                var ambientSounds = (int)vcAmbientSounds.GetValue();
+                if (ImGui.SliderInt("Ambient Sounds", ref ambientSounds, 0, 100))
+                {
+                    vcAmbientSounds.SetValue((byte)ambientSounds);
+                }
             }
 
             ImGui.PushFont(UiBuilder.IconFont);
-            var performanceMuted = this.vc.PerformanceMuted.GetValue();
+            var vcPerformanceMuted = this.vc.PerformanceMuted;
+            var performanceMuted = vcPerformanceMuted != null && vcPerformanceMuted.GetValue();
             if (ImGui.Button(VolumeButtonName(performanceMuted, nameof(performanceMuted)), buttonSize))
             {
-                this.vc.PerformanceMuted.SetValue(!performanceMuted);
+                this.vc.PerformanceMuted?.SetValue(!performanceMuted);
             }
 
             ImGui.PopFont();
             ImGui.SameLine();
-            var performance = (int)this.vc.Performance.GetValue();
-            if (ImGui.SliderInt("Performance", ref performance, 0, 100))
+            var vcPerformance = this.vc.Performance;
+            if (vcPerformance != null)
             {
-                this.vc.Performance.SetValue((byte)performance);
+                var performance = (int)vcPerformance.GetValue();
+                if (ImGui.SliderInt("Performance", ref performance, 0, 100))
+                {
+                    vcPerformance.SetValue((byte)performance);
+                }
             }
 
             ImGui.Text("Player Effects Volume");
 
-            var self = (int)this.vc.Self.GetValue();
-            if (ImGui.SliderInt("Self", ref self, 0, 100))
+            var vcSelf = this.vc.Self;
+            if (vcSelf != null)
             {
-                this.vc.Self.SetValue((byte)self);
+                var self = (int)vcSelf.GetValue();
+                if (ImGui.SliderInt("Self", ref self, 0, 100))
+                {
+                    vcSelf.SetValue((byte)self);
+                }
             }
 
-            var party = (int)this.vc.Party.GetValue();
-            if (ImGui.SliderInt("Party", ref party, 0, 100))
+            var vcParty = this.vc.Party;
+            if (vcParty != null)
             {
-                this.vc.Party.SetValue((byte)party);
+                var party = (int)vcParty.GetValue();
+                if (ImGui.SliderInt("Party", ref party, 0, 100))
+                {
+                    vcParty.SetValue((byte)party);
+                }
             }
 
-            var others = (int)this.vc.OtherPCs.GetValue();
-            if (ImGui.SliderInt("Other PCs", ref others, 0, 100))
+            var vcOtherPCs = this.vc.OtherPCs;
+            if (vcOtherPCs != null)
             {
-                this.vc.OtherPCs.SetValue((byte)others);
+                var others = (int)vcOtherPCs.GetValue();
+                if (ImGui.SliderInt("Other PCs", ref others, 0, 100))
+                {
+                    vcOtherPCs.SetValue((byte)others);
+                }
             }
 
             ImGui.Text("Equalizer");
 
-            var eqMode = (int)this.vc.EqualizerMode.GetValue();
-            if (ImGui.Combo("Mode", ref eqMode, EqualizerMode.Names, EqualizerMode.Names.Length))
+            var equalizerModeOption = this.vc.EqualizerMode;
+            if (equalizerModeOption != null)
             {
-                this.vc.EqualizerMode.SetValue((EqualizerMode.Enum)eqMode);
+                var eqMode = (int)equalizerModeOption.GetValue();
+                if (ImGui.Combo("Mode", ref eqMode, EqualizerMode.Names, EqualizerMode.Names.Length))
+                {
+                    equalizerModeOption.SetValue((EqualizerMode.Enum)eqMode);
+                }
             }
         }
 

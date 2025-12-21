@@ -5,3 +5,4 @@ punchline: A Dalamud plugin that allows volume control from anywhere, including 
 repo_url: https://github.com/karashiiro/SoundSetter
 tags: ["tool", "sound", "volume", "control"]
 icon_url: https://raw.githubusercontent.com/karashiiro/SoundSetter/master/Assets/icon.png
+changelog: Update for 7.4 & API 14 - BoxuChan
