@@ -13,7 +13,7 @@ namespace SoundSetter.OptionInternals
         public override bool GetValue()
         {
             var optionValue = GetRawValue();
-            return Convert.ToByte(optionValue.Value1) != 0;
+            return optionValue.Value1 != 0;
         }
 
         public override unsafe void SetValue(bool value)
